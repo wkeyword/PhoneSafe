@@ -1,12 +1,14 @@
 package com.changzheng.phonesafe;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import java.util.List;
 public class GuideActivity extends AppCompatActivity {
     private List<ImageView> mPageList;
     private Context context;
+    private Button mEnterBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,7 @@ public class GuideActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         context=this;
         //应用视图页
+        mEnterBtn=(Button)findViewById(R.id.guide_enter_btn);
         final ViewPager mViewPager=(ViewPager)findViewById(R.id.guide_vp);
         initPage();//初始化数据
 //        ListView 展示批量的数据步骤:1.列表项布局    2.初始化数据 List<Map> 3.设置适配器  4.监听列表项
@@ -53,7 +57,27 @@ public class GuideActivity extends AppCompatActivity {
             }
         });
 //        做监听
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position==mPageList.size()-1){
+                    mEnterBtn.setVisibility(View.VISIBLE);
+                }
+                else {
+                    mEnterBtn.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
 
     }
@@ -74,5 +98,11 @@ public class GuideActivity extends AppCompatActivity {
         mPageList.add(imageView3);
 
 
+    }
+//点击开始体验按钮
+    public void enterSystem(View view) {
+        Intent intent=new Intent(this,SplashActivity.class);
+        startActivity(intent);
+        finish();wan
     }
 }

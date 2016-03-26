@@ -20,6 +20,7 @@
         android:layout_centerHorizontal="true"
         android:background="#ef4be1"
         android:visibility="gone"
+        android:onClick="enterSystem"
         android:textColor="@drawable/guide_btn_color_select"
         android:layout_marginBottom="55dp"/>
 </RelativeLayout>
