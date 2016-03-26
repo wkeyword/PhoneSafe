@@ -3,10 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.changzheng.phonesafe.GuideActivity">
+<!--在V4支持库中-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/guide_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    </android.support.v4.view.ViewPager>
+    <Button
+        android:id="@+id/guide_enter_btn"
+        android:layout_width="135dp"
+        android:layout_height="45dp"
+        android:text="开始体验"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#ef4be1"
+        android:visibility="gone"
+        android:textColor="@drawable/guide_btn_color_select"
+        android:layout_marginBottom="55dp"/>
 </RelativeLayout>
