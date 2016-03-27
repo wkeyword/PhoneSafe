@@ -103,6 +103,7 @@ public class GuideActivity extends AppCompatActivity {
     public void enterSystem(View view) {
         Intent intent=new Intent(this,SplashActivity.class);
         startActivity(intent);
+        CacheUtils.putBoolean(context,"is_first_use",false);
         finish();
     }
 }
