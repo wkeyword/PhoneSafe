@@ -146,11 +146,13 @@ public class SplashActivity extends AppCompatActivity {
     private void showUpdateDialog(){
         new AlertDialog.Builder(context)
                 .setIcon(R.drawable.ic_launcher)
-                .setTitle("新版本号:"+new DialogInterface.OnClickListener(){
+                .setTitle("新版本号:"+newVersionCode)
+                .setMessage(versionDes)
+                .setPositiveButton("升级", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         downloadApk();
-                        ToastUtils.show(context,"下载APK");
+                        ToastUtils.show(context, "下载APK");
                     }
                 })
                 .setNegativeButton("取消",new DialogInterface.OnClickListener(){
